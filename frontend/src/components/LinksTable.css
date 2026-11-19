@@ -1,0 +1,100 @@
+.links-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background-color: var(--surface);
+}
+
+.links-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.links-table th,
+.links-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.links-table th {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.links-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.links-table tbody tr:hover {
+  background-color: rgba(139, 92, 246, 0.06);
+}
+
+.links-table .num {
+  text-align: right;
+}
+
+.short-cell {
+  color: var(--accent-400);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.original-cell {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+
+.date-cell {
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+
+.row-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent-400);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: rgba(139, 92, 246, 0.15);
+  border-color: var(--accent-500);
+}
+/* Phones: hide the less important columns so Clicks and Actions stay visible */
+@media (max-width: 600px) {
+  .links-table th:nth-child(2),
+  .links-table td:nth-child(2),
+  .links-table th:nth-child(3),
+  .links-table td:nth-child(3) {
+    display: none;
+  }
+
+  .links-table th,
+  .links-table td {
+    padding: 0.75rem 0.6rem;
+  }
+
+  .short-cell {
+    font-size: 0.85rem;
+  }
+}

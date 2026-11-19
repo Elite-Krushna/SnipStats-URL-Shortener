@@ -1,0 +1,99 @@
+SnipStats - URL Shortener + Analytics Dashboard
+REQUIREMENTS
+===============================================================
+ 
+1. SOFTWARE NEEDED
+---------------------------------------------------------------
+- Node.js 22.13 or newer (developed on v24.20.0)
+  Download the LTS version from https://nodejs.org
+- npm (comes with Node.js; developed on v11.19.0)
+- VS Code (recommended editor)
+- A modern browser: Chrome, Edge or Firefox
+- Operating system: Windows (commands below are for PowerShell).
+  macOS and Linux also work.
+ 
+Check your versions:
+  node --version
+  npm --version
+ 
+Note: no separate database software is needed. SQLite is built
+into Node.js (node:sqlite), and the database file is created
+automatically in backend/data/app.db.
+ 
+ 
+2. BACKEND PACKAGES (folder: backend)
+---------------------------------------------------------------
+- express   : web server and API
+- dotenv    : reads settings from the .env file
+ 
+Install everything with one command:
+  cd backend
+  npm install
+ 
+(Package names and versions are recorded in backend/package.json.)
+ 
+ 
+3. FRONTEND PACKAGES (folder: frontend)
+---------------------------------------------------------------
+- react, react-dom     : user interface
+- vite                 : development server and build tool
+- react-router-dom     : page navigation
+- recharts             : charts on the dashboard
+- lucide-react         : icons
+- gsap                 : light animations
+- eslint (dev only)    : code checking, installed by the Vite template
+ 
+Install everything with one command:
+  cd frontend
+  npm install
+ 
+(Package names and versions are recorded in frontend/package.json.)
+ 
+ 
+4. ENVIRONMENT FILE (backend/.env)
+---------------------------------------------------------------
+Create it by copying the example file:
+  cd backend
+  copy .env.example .env          (Windows)
+  cp .env.example .env            (macOS / Linux)
+ 
+Contents:
+  PORT=3000
+  BASE_URL=http://localhost:3000
+  FRONTEND_ORIGIN=http://localhost:5173
+  DB_PATH=data/app.db
+ 
+ 
+5. HOW TO START THE PROJECT
+---------------------------------------------------------------
+Use two terminals.
+ 
+To start the backend:
+  cd backend
+  npm run dev
+  (Expected: Backend running at http://localhost:3000)
+ 
+To start the frontend:
+  cd frontend
+  npm run dev
+  (Expected: Local: http://localhost:5173/)
+ 
+Open in the browser:
+  Website   : http://localhost:5173/
+  Dashboard : http://localhost:5173/dashboard
+  API check : http://localhost:3000/api/health
+ 
+To stop a server: click in its terminal and press Ctrl + C.
+ 
+ 
+6. PORTS USED
+---------------------------------------------------------------
+- 3000 : backend (Express API and short-link redirects)
+- 5173 : frontend (React + Vite)
+Make sure no other program is using these ports.
+ 
+ 
+7. CLOUD SERVICES
+---------------------------------------------------------------
+None. The project runs fully on the local computer.
+No AWS account or internet-based database is required.

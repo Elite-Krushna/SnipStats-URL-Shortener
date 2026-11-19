@@ -1,0 +1,130 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(5, 10, 23, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+}
+
+/* ---------- Logo ---------- */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.navbar-logo-icon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: var(--accent-500);
+    color: #ffffff;
+}
+
+.accent {
+    color: var(--accent-400);
+}
+
+/* ---------- Links (desktop layout) ---------- */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.navbar-link {
+    position: relative;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.navbar-link:hover {
+    color: var(--text);
+}
+
+/* Green underline that grows on hover */
+.navbar-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-400);
+    transition: width 0.25s ease;
+}
+
+.navbar-link:hover::after {
+    width: 100%;
+}
+
+.navbar-cta {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+}
+
+/* Hamburger button is hidden on desktop */
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+/* ---------- Mobile layout ---------- */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-links {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.5rem 1.25rem 1.25rem;
+        background-color: var(--bg-800);
+        border-bottom: 1px solid var(--border);
+        display: none;
+    }
+
+    .navbar-links.open {
+        display: flex;
+    }
+
+    .navbar-link {
+        padding: 0.85rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .navbar-link::after {
+        display: none;
+    }
+
+    .navbar-cta {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+/* Highlights the link of the page you are on */
+.navbar-link.active {
+  color: var(--accent-400);
+}
